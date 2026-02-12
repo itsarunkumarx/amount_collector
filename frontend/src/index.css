@@ -1,0 +1,43 @@
+@import "tailwindcss";
+
+@theme {
+  --color-royal-900: #0a192f;
+  --color-royal-800: #112240;
+  --color-royal-700: #233554;
+  --color-royal-gold: #c5a059;
+  --color-royal-text: #e6f1ff;
+  --color-royal-muted: #8892b0;
+
+  --font-serif: "Playfair Display", serif;
+  --font-sans: "Inter", sans-serif;
+
+  --shadow-royal: 0 10px 30px -10px rgba(2, 12, 27, 0.7);
+  --shadow-glass: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+@layer base {
+  body {
+    @apply bg-royal-900 text-royal-text font-sans antialiased overflow-x-hidden;
+    background-image: radial-gradient(circle at 50% 0%, #112240 0%, #0a192f 100%);
+    min-height: 100vh;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-serif font-bold text-royal-text;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-royal-800/60 backdrop-blur-md border border-royal-text/10 shadow-glass;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-royal-gold to-yellow-200;
+  }
+}
