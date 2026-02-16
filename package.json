@@ -1,0 +1,14 @@
+{
+    "name": "amount-collector-root",
+    "version": "1.0.0",
+    "description": "Root management for Amount Collector project",
+    "scripts": {
+        "backend": "cd backend && ..\\.venv\\Scripts\\python -m uvicorn main:app --reload --port 8000",
+        "frontend": "cd frontend && npm run dev",
+        "dev": "concurrently \"npm run backend\" \"npm run frontend\"",
+        "install-all": "npm install --prefix frontend && cd backend && ..\\.venv\\Scripts\\python -m pip install -r requirements.txt"
+    },
+    "devDependencies": {
+        "concurrently": "^9.2.1"
+    }
+}
