@@ -6,7 +6,7 @@ from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
 from app.core.config import settings
-from app.core.database import init_db
+from app.core.database import init_db, check_db_health
 from app.api.v1.api import api_router
 
 @asynccontextmanager
@@ -70,5 +70,8 @@ def root():
     return {"message": "Royal Amount Collector Backend Running 🚀", "status": "ok"}
 
 @app.get("/health")
-def health_check():
-    return {"status": "healthy"}
+async def health_check():
+    db_ok = await check_db_health()
+    if not db_ok:
+        return {"status": "unhealthy", "database": "disconnected"}, 503
+    return {"status": "healthy", "database": "connected"}

@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "C:\Users\ARUNKUMAR\Downloads\amount collecter\antigravity-backend\app\api\v1\endpoints\cases.py", line 47, in create_case
+    assigned_worker=assigned_worker_obj,
+                    ^^^^^^^^^^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'assigned_worker_obj' where it is not associated with a value

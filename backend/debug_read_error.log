@@ -1,0 +1,5 @@
+Read Cases failed: 'Link' object has no attribute 'id'Traceback (most recent call last):
+  File "C:\Users\ARUNKUMAR\Downloads\amount collecter\antigravity-backend\app\api\v1\endpoints\cases.py", line 95, in read_cases
+    lender_id=str(c.lender.id) if c.lender else "",
+                  ^^^^^^^^^^^
+AttributeError: 'Link' object has no attribute 'id'

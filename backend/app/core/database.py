@@ -34,3 +34,16 @@ async def init_db():
         print(f"Error: MongoDB connection failed: {str(e)}")
         # Raise the error if it's a startup failure
         raise e
+
+async def check_db_health():
+    """Verify that the database connection is alive"""
+    global client
+    if client is None:
+        return False
+    try:
+        # The 'ping' command is cheap and checks the connection
+        await client.admin.command('ping')
+        return True
+    except Exception as e:
+        print(f"Database health check failed: {e}")
+        return False

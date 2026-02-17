@@ -1,0 +1,7 @@
+Create Case failed: 400: An active case already exists for this borrower (nandhini). Please complete it first.
+Traceback (most recent call last):
+  File "C:\Users\ARUNKUMAR\Downloads\amount collecter\antigravity-backend\app\api\v1\endpoints\cases.py", line 46, in create_case
+    raise HTTPException(
+    ...<2 lines>...
+    )
+fastapi.exceptions.HTTPException: 400: An active case already exists for this borrower (nandhini). Please complete it first.

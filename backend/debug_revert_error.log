@@ -1,0 +1,31 @@
+Revert Transaction Error: object AsyncIOMotorLatentCommandCursor can't be used in 'await' expression
+Traceback (most recent call last):
+  File "C:\Users\ARUNKUMAR\Downloads\amount collecter\antigravity-backend\app\api\v1\endpoints\transactions.py", line 121, in delete_transaction
+    transaction = await Transaction.get(transaction_id, fetch_links=True)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ARUNKUMAR\AppData\Local\Programs\Python\Python313\Lib\site-packages\beanie\odm\documents.py", line 276, in get
+    return await cls.find_one(
+           ^^^^^^^^^^^^^^^^^^^
+    ...<8 lines>...
+    )
+    ^
+  File "C:\Users\ARUNKUMAR\AppData\Local\Programs\Python\Python313\Lib\site-packages\beanie\odm\queries\find.py", line 1030, in __await__
+    document = yield from self._find_one().__await__()  # type: ignore
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ARUNKUMAR\AppData\Local\Programs\Python\Python313\Lib\site-packages\beanie\odm\queries\find.py", line 988, in _find_one
+    return await self.document_model.find_many(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    ).first_or_none()
+    ^^^^^^^^^^^^^^^^^
+  File "C:\Users\ARUNKUMAR\AppData\Local\Programs\Python\Python313\Lib\site-packages\beanie\odm\queries\find.py", line 698, in first_or_none
+    result = await self.limit(1).to_list()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ARUNKUMAR\AppData\Local\Programs\Python\Python313\Lib\site-packages\beanie\odm\queries\cursor.py", line 64, in to_list
+    cursor = await self.get_cursor()
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ARUNKUMAR\AppData\Local\Programs\Python\Python313\Lib\site-packages\beanie\odm\queries\find.py", line 675, in get_cursor
+    await self.document_model.get_pymongo_collection().aggregate(
+    ...<3 lines>...
+    )
+TypeError: object AsyncIOMotorLatentCommandCursor can't be used in 'await' expression
