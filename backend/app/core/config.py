@@ -8,6 +8,7 @@ class Settings(BaseSettings):
     
     # CORS
     BACKEND_CORS_ORIGINS: List[AnyHttpUrl] = [
+        "https://royal-amount-collector.vercel.app",
         "http://localhost:5173", # Vite
         "http://localhost:5174", # Vite (alternative)
         "http://localhost:3000",
